@@ -1,10 +1,7 @@
 import { Footer } from '@/components';
 import {
-  AlipayCircleOutlined,
   LockOutlined,
-  TaobaoCircleOutlined,
   UserOutlined,
-  WeiboCircleOutlined,
 } from '@ant-design/icons';
 import {
   LoginForm,
@@ -116,7 +113,7 @@ const Login: React.FC = () => {
           title="vizziniBI"
           subTitle={'vizziniBI 是济楚出品的BI平台'}
           initialValues={{
-            autoLogin: true,
+            autoLogin: false,
           }}
 
           onFinish={async (values) => {
