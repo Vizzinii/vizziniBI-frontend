@@ -3,22 +3,25 @@ import { DefaultFooter } from '@ant-design/pro-components';
 import React from 'react';
 
 const Footer: React.FC = () => {
+  const defaultMessage = 'Powered by Vizzini';
+  const currentYear = new Date().getFullYear();
   return (
     <DefaultFooter
       style={{
         background: 'none',
       }}
+      copyright={`${currentYear} ${defaultMessage}`}
       links={[
         {
-          key: 'vizziniBI',
-          title: 'vizziniBI',
-          href: 'https://pro.ant.design',
+          key: 'vizzini',
+          title: 'vizzini',
+          href: 'https://www.cnblogs.com/vizzini',
           blankTarget: true,
         },
         {
           key: 'github',
           title: <GithubOutlined />,
-          href: 'https://github.com/ant-design/ant-design-pro',
+          href: 'https://github.com/Vizzinii',
           blankTarget: true,
         },
         {
