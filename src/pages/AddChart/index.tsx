@@ -173,7 +173,7 @@ const Addchart: React.FC = () => {
               <Spin spinning={submitting}></Spin>
             </Card>
             <Divider></Divider>
-            <Card title="表格可视化">
+            <Card title="可视化结果">
               {
                 option ? <ReactECharts option={option}/> : <div>请先在左侧填写好表单再点击生成！</div>
               }
