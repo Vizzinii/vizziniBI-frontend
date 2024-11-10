@@ -1,19 +1,14 @@
 import { Footer } from '@/components';
-import {
-  LockOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
-import {
-  LoginForm,
-  ProFormText,
-} from '@ant-design/pro-components';
-import {Helmet, history, Link, useModel} from '@umijs/max';
-import { Alert, message, Tabs } from 'antd';
+import { getLoginUserUsingGet, userLoginUsingPost } from '@/services/vizziniBI/userController';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { LoginForm, ProFormText } from '@ant-design/pro-components';
+import { Helmet, history, Link, useModel } from '@umijs/max';
+import { message, Tabs } from 'antd';
 import { createStyles } from 'antd-style';
 import React, { useState } from 'react';
 import { flushSync } from 'react-dom';
 import Settings from '../../../../config/defaultSettings';
-import {getLoginUserUsingGet, userLoginUsingPost} from "@/services/vizziniBI/userController";
+
 const useStyles = createStyles(({ token }) => {
   return {
     action: {
@@ -50,14 +45,10 @@ const useStyles = createStyles(({ token }) => {
   };
 });
 
-
-
 const Login: React.FC = () => {
-
   const [type, setType] = useState<string>('account');
   const { initialState, setInitialState } = useModel('@@initialState');
   const { styles } = useStyles();
-
 
   const fetchUserInfo = async () => {
     const userInfo = await getLoginUserUsingGet();
@@ -81,7 +72,7 @@ const Login: React.FC = () => {
         const urlParams = new URL(window.location.href).searchParams;
         history.push(urlParams.get('redirect') || '/');
         return;
-      }else {
+      } else {
         message.error(msg.message);
       }
     } catch (error) {
@@ -115,7 +106,6 @@ const Login: React.FC = () => {
           initialValues={{
             autoLogin: false,
           }}
-
           onFinish={async (values) => {
             await handleSubmit(values as API.UserLoginRequest);
           }}
@@ -170,11 +160,7 @@ const Login: React.FC = () => {
               marginBottom: 24,
             }}
           >
-            <Link
-              to="/user/register"
-            >
-              注册
-            </Link>
+            <Link to="/user/register">注册</Link>
           </div>
         </LoginForm>
       </div>

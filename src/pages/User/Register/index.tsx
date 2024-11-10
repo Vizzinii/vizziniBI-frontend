@@ -1,28 +1,16 @@
 import { Footer } from '@/components';
-import {
-  LockOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
-import {
-  LoginForm,
-  ProFormText,
-} from '@ant-design/pro-components';
+import { userRegisterUsingPost } from '@/services/vizziniBI/userController';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { LoginForm, ProFormText } from '@ant-design/pro-components';
 import { message, Tabs } from 'antd';
 import { history } from 'umi';
 import styles from './index.less';
-import {userRegisterUsingPost} from "@/services/vizziniBI/userController";
-
-
-
-
 
 const Register: React.FC = () => {
   /**
    * 登录成功后，获取用户的登录信息
    */
   const handleSubmit = async (values: API.UserRegisterRequest) => {
-
-
     const { userPassword, checkPassword } = values;
     // 校验密码输入是否一致
     if (userPassword !== checkPassword) {
@@ -55,8 +43,8 @@ const Register: React.FC = () => {
         <LoginForm
           submitter={{
             searchConfig: {
-              submitText: '注册'
-            }
+              submitText: '注册',
+            },
           }}
           logo={<img alt="logo" src="/logo.svg" />}
           title="vizziniBI"
@@ -71,7 +59,7 @@ const Register: React.FC = () => {
           <Tabs>
             <Tabs.TabPane key="account" tab={'用户账号注册'} />
           </Tabs>
-          {(
+          {
             <>
               <ProFormText
                 name="userAccount"
@@ -126,7 +114,7 @@ const Register: React.FC = () => {
                 ]}
               />
             </>
-          )}
+          }
         </LoginForm>
       </div>
       <Footer />
